@@ -20,7 +20,8 @@ const GlobalStyle = createGlobalStyle`
     body {
         font-size: 1.6rem;
         font-family: "Montserrat", sans-serif;
-
+        background-color:black;
+        color:white;
         @media screen and (max-width:768px) {
              overflow:hidden !important;   
         }
