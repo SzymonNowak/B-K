@@ -11,30 +11,28 @@ const Nav = styled.nav`
   min-height: 8vh;
   background-color: black;
   position:relative;
-  box-shadow: 1px 1px 4px white;
-`;
-const Logo = styled.div`
-
+  box-shadow: 0px 0px 10px white;
+  z-index:3;
 `;
 const NavList = styled.ul`
     display:flex;
     width:30%;
     justify-content:space-around;
     list-style:none;
-    border-top-left-radius:20px;
     @media screen and (max-width:768px) {
         position:absolute;
         right: 0px;
         height:92vh;
         top:85px;
-        background-color: #b4b8bf;
+        background-color: white;
         display:flex;
         flex-direction: column;
         align-items:center;
         transform:translateX(${({isVisible}) => (isVisible ? '0%' : '100%')});
         transition:  0.3s ease-in-out;
+        box-shadow:0 0 40px black;
     }
-    @media screen and (max-width:1024px) {
+    @media screen and (max-width:1011px) {
       width:45%;
     }
 `;
@@ -62,6 +60,7 @@ const StyledNavLink = styled(NavLink)`
 
 const Burger =styled.div`
     display:none;    
+    
     @media screen and (max-width:768px) {
      display:block;
      cursor: pointer;
@@ -74,18 +73,24 @@ const Line1 =styled.div`
     height:3px;
     background-color:white;
     margin:5px !important;
+    transition: 0.3s;
+    transform: ${props=> props.isVisible ? "rotate(-45deg) translate(-5px,6px)" : "none"};
 `;
 const Line2 =styled.div`
     width:25px;
     background-color:white;
     height:3px;
     margin:5px !important;
+    opacity: ${props => props.isVisible ? "0" : "1"};
 `;
 const Line3 =styled.div`
     width:25px;
     background-color:white;
     height:3px;
     margin:5px !important;
+    transition: 0.3s;
+    transform: ${props=> props.isVisible ? "rotate(45deg)  translate(-5px,-6px)" : "none"};
+
 `;
 const ImgLogo = styled.img`
     @media screen and (max-width:768px) {
@@ -111,9 +116,7 @@ class NavBar extends Component {
 
     return(
         <Nav>
-            <Logo>
              <ImgLogo src={logo} />
-            </Logo>
             <NavList isVisible={this.state.isBurgerClicked}>
                 <NavItem>
                     <StyledNavLink  to={routes.home}>Strona Głowna</StyledNavLink>
@@ -125,10 +128,10 @@ class NavBar extends Component {
                     <StyledNavLink to={routes.about}>O Nas</StyledNavLink>
                 </NavItem>
             </NavList>
-            <Burger onClick={this.handleBurgerCLick}>
-                <Line1/>
-                <Line2/>
-                <Line3/>
+            <Burger onClick={this.handleBurgerCLick} >
+                <Line1 isVisible={this.state.isBurgerClicked}/>
+                <Line2 isVisible={this.state.isBurgerClicked}/>
+                <Line3 isVisible={this.state.isBurgerClicked}/>
             </Burger>
         </Nav>
     )
