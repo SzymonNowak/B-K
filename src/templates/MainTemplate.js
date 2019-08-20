@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import GlobalStyle from '../theme/GlobalStyle';
 import NavBar from '../components/Organisms/NavBar/NavBar';
-
+import { ThemeProvider } from 'styled-components';
+import { theme } from '../theme/mainTheme';
 
 
 class MainTemplate extends Component {
@@ -14,7 +15,9 @@ class MainTemplate extends Component {
             <div>
                 <GlobalStyle/>
                 <NavBar></NavBar>
-                {children}
+                <ThemeProvider theme={theme}> 
+                {children} 
+                </ThemeProvider>
             </div>
         )
     }

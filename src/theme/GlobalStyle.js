@@ -22,19 +22,13 @@ const GlobalStyle = createGlobalStyle`
         font-family: "Montserrat", sans-serif;
         background-color:black;
         color:white;
-        /* max-width:1920px; */
         @media screen and (max-width:768px) {
         overflow-x:hidden;
         }
         @media screen and (max-width:1024px) {
             overflow-x:hidden;
-
-            
         }
-
-    
   }
-    
 `;
 
 

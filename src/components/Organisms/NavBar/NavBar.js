@@ -19,6 +19,7 @@ const NavList = styled.ul`
     width:30%;
     justify-content:space-around;
     list-style:none;
+    overflow: hidden;
     @media screen and (max-width:768px) {
         position:absolute;
         right: 0px;
@@ -31,6 +32,7 @@ const NavList = styled.ul`
         transform:translateX(${({isVisible}) => (isVisible ? '0%' : '100%')});
         transition:  0.3s ease-in-out;
         box-shadow:0 0 40px black;
+        
     }
     @media screen and (max-width:1011px) {
       width:45%;
@@ -51,6 +53,7 @@ const StyledNavLink = styled(NavLink)`
     }
     @media screen and (max-width:768px) {
         color:black;
+
         &.active {
         color: #c200ff;
         }

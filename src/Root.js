@@ -13,7 +13,7 @@ class Root extends Component {
      <MainTemplate>
       <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path={routes.home} component={Home} />
+          <Route  path={routes.home} component={Home} />
           <Route exact path={routes.contact} component={Contact} />
           <Route exact path={routes.about} component={About} />
       </Switch>
